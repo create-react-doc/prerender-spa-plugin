@@ -71,6 +71,7 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
       try {
         compilerFS.mkdirp(dir, opts, (err, made) => (err === null ? resolve(made) : reject(err)))
       } catch (e) {
+        // mkdirp removed in Webpack 5
         compilerFS.mkdir(dir, { ...opts, recursive: true }, (err, made) => (err === null ? resolve(made) : reject(err)))
       }
     })
