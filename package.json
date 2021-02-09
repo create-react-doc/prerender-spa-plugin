@@ -1,6 +1,6 @@
 {
   "name": "@dreysolano/prerender-spa-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Flexible, framework-agnostic static site generation for sites and SPAs built with webpack.",
   "license": "MIT",
   "main": "index.js",
