@@ -1,5 +1,18 @@
 <h1 align="center">Prerender SPA Plugin</h1>
-<h3>This plugin is forked from the original by Chris Fritz (https://github.com/chrisvfritz/prerender-spa-plugin) with updated dependencies and handling for use with Webpack 5</h3>
+<h3>This package is forked from the original by Chris Fritz</h3>
+<p>Original repo: https://github.com/chrisvfritz/prerender-spa-plugin</p>
+<p>The purpose of this fork is to upgrade all dependencies and resolve issues with Webpack 5</p>
+<div align="center">
+
+[![npm version](https://img.shields.io/npm/v/@dreysolano/prerender-spa-plugin.svg)]()
+[![npm downloads](https://img.shields.io/npm/dt/@dreysolano/prerender-spa-plugin.svg)]()
+[![Dependency Status](https://img.shields.io/david/dreysolano/prerender-spa-plugin.svg)](https://david-dm.org/dreysolano/prerender-spa-plugin)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://standardjs.com/)
+[![license](https://img.shields.io/github/license/dreysolano/prerender-spa-plugin.svg)]()
+
+</div>
+<p>Content below is retained from the original README</p>
+<p align="center">------------------------------</p>
 <p align="center">
   <em>Flexible, framework-agnostic static site generation for sites and SPAs built with webpack.</em>
 </p>
