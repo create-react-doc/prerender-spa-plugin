@@ -1,5 +1,5 @@
 {
-  "name": "prerender-spa-plugin",
+  "name": "@ds/prerender-spa-plugin",
   "version": "3.4.0",
   "description": "Flexible, framework-agnostic static site generation for sites and SPAs built with webpack.",
   "license": "MIT",
