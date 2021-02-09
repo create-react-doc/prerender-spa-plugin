@@ -145,11 +145,11 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
               .then(() => {
                 return new Promise((resolve, reject) => {
                   compilerFS.writeFile(processedRoute.outputPath, processedRoute.html.trim(), err => {
-                    if (err)
+                    if (err) {
                       reject(
                         `[prerender-spa-plugin] Unable to write rendered route to file "${processedRoute.outputPath}" \n ${err}.`
                       )
-                    else resolve()
+                    } else resolve()
                   })
                 })
               })

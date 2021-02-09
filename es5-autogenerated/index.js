@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var path = require('path');
 var Prerenderer = require('@prerenderer/prerenderer');
 var PuppeteerRenderer = require('@prerenderer/renderer-puppeteer');
@@ -69,9 +71,16 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
   // From https://github.com/ahmadnassri/mkdirp-promise/blob/master/lib/index.js
   var mkdirp = function mkdirp(dir, opts) {
     return new Promise(function (resolve, reject) {
-      compilerFS.mkdirp(dir, opts, function (err, made) {
-        return err === null ? resolve(made) : reject(err);
-      });
+      try {
+        compilerFS.mkdirp(dir, opts, function (err, made) {
+          return err === null ? resolve(made) : reject(err);
+        });
+      } catch (e) {
+        // mkdirp removed in Webpack 5
+        compilerFS.mkdir(dir, _extends({}, opts, { recursive: true }), function (err, made) {
+          return err === null ? resolve(made) : reject(err);
+        });
+      }
     });
   };
 
@@ -133,7 +142,9 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
         return mkdirp(path.dirname(processedRoute.outputPath)).then(function () {
           return new Promise(function (resolve, reject) {
             compilerFS.writeFile(processedRoute.outputPath, processedRoute.html.trim(), function (err) {
-              if (err) reject(`[prerender-spa-plugin] Unable to write rendered route to file "${processedRoute.outputPath}" \n ${err}.`);else resolve();
+              if (err) {
+                reject(`[prerender-spa-plugin] Unable to write rendered route to file "${processedRoute.outputPath}" \n ${err}.`);
+              } else resolve();
             });
           });
         }).catch(function (err) {
