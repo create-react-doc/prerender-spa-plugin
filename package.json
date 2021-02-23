@@ -1,6 +1,6 @@
 {
-  "name": "@dreysolano/prerender-spa-plugin",
-  "version": "1.0.3",
+  "name": "crd-prerender-spa-plugin",
+  "version": "0.1.0",
   "description": "Flexible, framework-agnostic static site generation for sites and SPAs built with webpack.",
   "license": "MIT",
   "main": "index.js",
@@ -42,7 +42,7 @@
       "email": "quentin.dreyer@gmail.com"
     }
   ],
-  "repository": "dreysolano/prerender-spa-plugin",
+  "repository": "https://github.com/create-react-doc/prerender-spa-plugin",
   "bugs": {
     "url": "https://github.com/dreysolano/prerender-spa-plugin/issues",
     "email": "dreysolano@gmail.com"

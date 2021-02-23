@@ -168,6 +168,8 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
         return promises
       })
       .then(r => {
+        const { successCb } = this._options
+        successCb && successCb()
         PrerendererInstance.destroy()
         done()
       })

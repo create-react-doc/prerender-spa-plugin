@@ -150,6 +150,8 @@ PrerenderSPAPlugin.prototype.apply = function (compiler) {
       }));
       return promises;
     }).then(function (r) {
+      var successCb = _this2._options.successCb;
+      successCb && successCb();
       PrerendererInstance.destroy();
       done();
     }).catch(function (err) {
