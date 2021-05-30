@@ -56,7 +56,8 @@ function PrerenderSPAPlugin() {
 
   this._options.server = this._options.server || {};
   this._options.renderer = this._options.renderer || new PuppeteerRenderer(Object.assign({}, {
-    headless: true
+    headless: true,
+    timeout: 0
   }, rendererOptions));
 
   if (this._options.postProcessHtml) {
